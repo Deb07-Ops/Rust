@@ -1,0 +1,14 @@
+# Rust build artifacts
+**/target/
+**/*.rs.bk
+*.exe
+*.pdb
+
+# Folders to exclude
+learn-to-code-with-rust/
+"learn to code with rust/"
+
+# Editor files
+.vscode/
+
+

@@ -1,0 +1,94 @@
+Rust Code errors Index:
+
+rustc --explain E0277 (unique Identifier for the error)
+just go to the terminal and paste it, it will give you the complete explanation of the error.
+[
+    Erroneous code example:
+
+```
+// here we declare the Foo trait with a bar method
+trait Foo {
+    fn bar(&self);
+}
+
+// we now declare a function which takes an object implementing the Foo trait
+fn some_func<T: Foo>(foo: T) {
+    foo.bar();
+}
+]
+
+
+
+Variable Shadowing
+
+It means redeclaring a variable, the original variable is replaced by the new one.
+let grams_of_protein = "100.345";
+let grams_of_protein = 100.345;
+Here the let keyword validates the variable with the datatype it is holding and if it is redeclared it checks if the new value is of the 
+same datatype as the original variable, if not it will throw an error.
+  let grams_of_protein = "100.345";
+  // here the variable will be of "{String}" datatype
+  let grams_of_protein = 100.345;
+   // here the variable will be of "{floating point integer}" datatype
+  let grams_of_protein = 80;
+   // here the variable will be of "{integer}" datatype
+So we can infere that the datatype of the variable is determined by the latest value it holds and the previous version becomes invalid.
+
+
+
+Scope:
+
+A boundary or region of code where a name is valid.
+
+outside the block the variable is not accessible but inside it is everywhere, even in nested scopes.
+but inside the nested scope the outer scope's variable is not accessible.
+
+{
+    let coffee = 6.75
+    println!({coffee}); //accessible
+    {
+      let coffee = 5.0;
+      println!("{coffee}"); // 5.0 (inner variable)
+  } // inner `coffee` is dropped here
+  println!("{coffee}");     // 6.75 (outer variable restored!)
+}
+println!("{coffee}"); //not accessible
+
+
+Constant
+
+Similar to variable but stays unchanged through the code just like immutable variables.
+But the strong difference is, immutable variables can only be used inside a block where they are declared.
+while constants can be used anywhere in the code.
+
+const TAX_RATE:f64=0.075;
+fn main() {  
+    let income:f64 = 755000.0; 
+    let income_tax = income * TAX_RATE;
+    println!("Income Tax: {}", income_tax); 
+    let income_after_tax = income - income_tax;
+    println!("Salary Yearly: {}",income);
+    println!("IncomeTaxRate: {}",TAX_RATE);
+    println!("TakeHome After Tax: {}",income_after_tax);
+}
+
+Type Alias:
+
+An altername that we can suggest to an existing type
+
+for that we create type alias, that keeps the type of the varaible constant throughout the program
+type Meters = i32;
+fn main() {  
+    let mile_race_length:Meters=1600;
+    println!("Length of 1 mile race in meters: {}", mile_race_length);
+    let two_mile_race_length=mile_race_length*2;
+    println!("Length of 2 mile race in meters: {}", two_mile_race_length);
+
+}
+
+
+Compiler directive:
+
+An annotation that tells the compiler how to parse the source code
+
+
