@@ -1,9 +1,20 @@
-//#![allow(unused_variables)] when you apply in the whole .rsc file
-type Meters = i32;
-#[allow(unused_variables)]// when you apply in the functions
-fn main() {  
-    
-    let mile_race_length:Meters=1600;
-    let two_mile_race_length=mile_race_length*2;
+// Declare each topic as a module
+mod variable_shadowing;
+mod scope;
+mod constants;
+mod type_aliases;
+mod compiler_directives;
 
+fn main() {
+    println!("╔══════════════════════════════════════════╗");
+    println!("║     Rust Learning - Topic Explorer       ║");
+    println!("╚══════════════════════════════════════════╝\n");
+
+    variable_shadowing::run();
+    scope::run();
+    constants::run();
+    type_aliases::run();
+    compiler_directives::run();
+
+    println!("✅ All topics executed successfully!");
 }
